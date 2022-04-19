@@ -1,1 +1,16 @@
+class TruncateTest extends \PHPUnit\Framework\TestCase
+{
+    public function testShortStringRemainsAsIs()
+    {
+        // Act: вызываем функцию
+        $result = truncate("hello", 10);
+        // Assert: проверяем, что возвращенный результат совпадает с ожидаемым
+        $this->assertEquals("hello", $result);
+    }
 
+    public function testLongStringIsTruncated()
+    {
+        $result = truncate("hello world", 5);
+        $this->assertEquals("hello…", $result);
+    }
+}
